@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Partida</title>
+    <link rel="stylesheet" href="css/cadastro_partida.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+    <div id="background">
+        <video loop autoplay muted>
+            <source src="./img/videofundo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="top-bar"> 
+        <header>
+            <a href="home.html">
+                <img src="./img/cbf.png" alt="CBF Logo">
+            </a>
+            <ul class="menu">
+                <li class="dropdown">
+                    <a href="home.html">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Listar</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="listar_time.html">Time</a></li>
+                        <li><a href="listar_campeonato.html">Campeonato</a></li>
+                        <li><a href="listar_partida.html">Partida</a></li>
+                        <li><a href="listar_jogador.html">Jogador</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Cadastrar</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="cadastrar_time.html">Time</a></li>
+                        <li><a href="cadastrar_campeonato.html">Campeonato</a></li>
+                        <li><a href="cadastrar_partida.html">Partida</a></li>
+                        <li><a href="cadastrar_jogador.html">Jogador</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <main>
+        <div class="form-container">
+            <h1>Cadastrar Partida</h1>
+            <form action="http://localhost/api/webservice/partida.php" method="POST" id="formPartida">
+                <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="datetime-local" id="data" name="data" required>
+                </div>
+                <div class="form-group">
+                    <label for="local">Local</label>
+                    <input type="text" id="local" name="local" required>
+                </div>
+                <div class="form-group">
+                    <label for="campeonato_id">Campeonato</label>
+                    <input type="number" id="campeonato_id" name="campeonato_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="time_home_id">Time Casa</label>
+                    <input type="number" id="time_home_id" name="time_home_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="time_away_id">Time Visitante</label>
+                    <input type="number" id="time_away_id" name="time_away_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="time_home_gols">Gols Time Casa</label>
+                    <input type="number" id="time_home_gols" name="time_home_gols" required>
+                </div>
+                <div class="form-group">
+                    <label for="time_away_gols">Gols Time Visitante</label>
+                    <input type="number" id="time_away_gols" name="time_away_gols" required>
+                </div>
+                <div class="form-group">
+                    <label for="created_by">Criado Por (Opcional)</label>
+                    <input type="text" id="created_by" name="created_by">
+                </div>
+                <button type="submit" class="btn-submit">Cadastrar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
