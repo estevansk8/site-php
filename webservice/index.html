@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GERENCIAMENTO DE CAMPEONATO</title>
+</head>
+<body>
+    <h1>GERENCIAMENTO DE CAMPEONATO</h1>
+    <p>O sistema é uma API para gerenciamento de campeonatos de futebol. Ele permite o cadastro, consulta, atualização e exclusão de clubes, jogadores, campeonatos e partidas. Além disso, possibilita a associação de clubes a campeonatos e jogadores a clubes, bem como a consulta de estatísticas, como o vencedor de um campeonato.</p>
+    
+    <p>As principais entidades são:</p>
+    <ul>
+        <li><strong>Clube:</strong> Representa os times participantes.</li>
+        <li><strong>Jogador:</strong> Representa os jogadores associados aos clubes.</li>
+        <li><strong>Campeonato:</strong> Representa os campeonatos onde os clubes competem.</li>
+        <li><strong>Partida:</strong> Representa os jogos entre os clubes.</li>
+        <li><strong>TimeCampeonato:</strong> Relação entre clubes e campeonatos.</li>
+    </ul>
+
+    <h2>Rotas da Aplicação</h2>
+
+    <h3>Campeonato</h3>
+    <table border="1">
+        <tr>
+            <th>Método</th>
+            <th>Exemplo</th>
+            <th>Descrição</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/api/webservice/campeonato.php</td>
+            <td>Lista todos os campeonatos cadastrados.</td>
+            <td>
+                <pre>
+                    {
+                        "id": 1,
+                        "nome": "Campeonato Brasileiro",
+                        "ano": 2023,
+                        "created_at": "...",
+                        "created_by": "admin"
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/campeonato.php?id=1</td>
+            <td>Lista todos os campeonatos cadastrados com aquele ID.</td>
+            <td>
+                <pre>
+                    {
+                        "id": 1,
+                        "nome": "Campeonato Brasileiro",
+                        "ano": 2023,
+                        "created_at": "...",
+                        "created_by": "admin"
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/timeJogaCampeonato.php?id=4</td>
+            <td>Lista todos os campeonatos que aquele time participa.</td>
+            <td>
+                <pre>
+                    [
+                        {
+                            "id": 1,
+                            "nome": "Campeonato Brasileiro",
+                            "ano": 2023,
+                            "created_at": "2024-10-22 21:46:05",
+                            "created_by": "admin"
+                        },
+                        {
+                            "id": 4,
+                            "nome": "Campeonato Gaúcho",
+                            "ano": 2023,
+                            "created_at": "2024-10-22 21:46:05",
+                            "created_by": "admin"
+                        }
+                    ]
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>http://localhost/api/webservice/campeonato.php</td>
+            <td>Cadastra novo campeonato e requer o nome e o ano.</td>
+            <td>
+                <pre>
+                    {
+                        "nome": "Favela Cup",
+                        "ano": 2004
+                      }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>http://localhost/api/webservice/campeonato.php</td>
+            <td>EDITA CAMPEONATO. requer o nome ou o ano.</td>
+            <td>
+                <pre>
+                    {
+                        "nome": "Favela Cup",
+                        "ano": 2004
+                      }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>http://localhost/api/webservice/campeonato.php</td>
+            <td>Não é possivel deletar campeonato</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "Campeonato não é possivel ser deletado"
+                    }
+                </pre>
+            </td>
+        </tr>
+    </table>
+
+    <h3>Clube</h3>
+    <table border="1">
+        <tr>
+            <th>Método</th>
+            <th>Exemplo</th>
+            <th>Descrição</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/clube.php</td>
+            <td>Lista todos os clubes cadastrados.</td>
+            <td>
+                <pre>
+                    [
+                    {
+                        "id": 1,
+                        "nome": "Campeonato Brasileiro",
+                        "ano": 2023,
+                        "created_at": "...",
+                        "created_by": "admin"
+                    }]
+                </pre>
+            </td>
+        </tr>
+
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/clube.php?id=1</td>
+            <td>Lista todos os clubes cadastrados com aquele id.</td>
+            <td>
+                <pre>
+                    [
+                    {
+                        "id": 1,
+                        "nome": "Campeonato Brasileiro",
+                        "ano": 2023,
+                        "created_at": "...",
+                        "created_by": "admin"
+                    }]
+                </pre>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>POST</td>
+            <td>http://localhost/api/webservice/clube.php</td>
+            <td>Cadastra novo clube. Requer: nome, cidade e estadio.</td>
+            <td>
+                <pre>
+                    {
+                        "nome": "Clube Atualizado",
+                        "cidade": "Cidade Atualizada",
+                        "estadio": "Estádio Atualizado"
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>http://localhost/api/webservice/clube.php?id=3</td>
+            <td>EDITA Clube. REQUER O NOME, cidade ou estadio.</td>
+            <td>
+                <pre>
+                    {
+                        "nome": "Clube Atualizado",
+                        "cidade": "Cidade Atualizada",
+                        "estadio": "Estádio Atualizado"
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>http://localhost/api/webservice/campeonato.php</td>
+            <td>Não é possivel deletar clube</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "Clube não é possivel ser deletado"
+                    }
+                </pre>
+            </td>
+        </tr>
+    </table>
+
+    <h3>Partida</h3>
+    <table border="1">
+        <tr>
+            <th>Método</th>
+            <th>Exemplo</th>
+            <th>Descrição</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/api/webservice/partida.php</td>
+            <td>Lista todos as partidas cadastradas.</td>
+            <td>
+                <pre>
+                [
+                    ....
+                    {
+                        "id": 5,
+                        "data": "2023-10-20",
+                        "local": "Arena do Grêmio",
+                        "campeonato_id": 4,
+                        "time_home_id": 4,
+                        "time_away_id": 5,
+                        "created_at": "2024-10-22 21:47:37",
+                        "created_by": "admin",
+                        "time_home_gols": 2,
+                        "time_away_gols": 0,
+                        "vencedor": 4
+                    }
+                ]
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/partida.php?id=1</td>
+            <td>Lista todas as partidas cadastradas com aquele ID.</td>
+            <td>
+                <pre>
+                    {
+                        "id": 1,
+                        "data": "2023-10-20",
+                        "local": "Arena do Grêmio",
+                        "campeonato_id": 4,
+                        "time_home_id": 4,
+                        "time_away_id": 5,
+                        "created_at": "2024-10-22 21:47:37",
+                        "created_by": "admin",
+                        "time_home_gols": 2,
+                        "time_away_gols": 0,
+                        "vencedor": 4
+                    }
+                
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/vencedor.php?id=4</td>
+            <td>Lista o campeão do campeonato com aquele ID.</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "O vencedor do campeonato é o time",
+                        "vencedor": {
+                            "id": 4,
+                            "nome": "Grêmio",
+                            "cidade": "Porto Alegre",
+                            "estadio": "Arena do Grêmio",
+                            "created_at": "2024-10-22 21:46:05",
+                            "created_by": "admin"
+                        }
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>http://localhost/api/webservice/partida.php</td>
+            <td>CADASTRA NOVa partida REQUER os campos listados no Json ao lado</td>
+            <td>
+                <pre>
+                    {
+                        "data": "2024-10-23",
+                        "local": "Estádio B",
+                        "campeonato_id": 11,
+                        "time_home_id": 2,
+                        "time_away_id": 3,
+                        "time_home_gols": 3,
+                        "time_away_gols": 2
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>http://localhost/api/webservice/partida.php?id=4</td>
+            <td>EDITA partida. REQUER data ou local.</td>
+            <td>
+                <pre>
+                    {
+                        "data": "2024-10-23",
+                        "local": "Estádio Municipal"
+                        
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>http://localhost/api/webservice/partida.php?id=5</td>
+            <td>Necessario passar o Id</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "Partida deletada com sucesso"
+                    }
+                </pre>
+            </td>
+        </tr>
+    </table>
+
+    <h3>Jogador</h3>
+    <table border="1">
+        <tr>
+            <th>Método</th>
+            <th>Exemplo</th>
+            <th>Descrição</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/jogador.php</td>
+            <td>Lista todos os jogadores encontrados.</td>
+            <td>
+                <pre>
+                    [
+                    {
+                        "id": 1,
+                        "nome": "Gabriel Barbosa",
+                        "posicao": "Atacante",
+                        "time_id": 1,
+                        "created_at": "2024-10-22 21:46:05",
+                        "created_by": "admin"
+                    },]
+                    ...
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/jogadorTime.php?id=1</td>
+            <td>Lista o jogador cadastrado com aquele ID.</td>
+            <td>
+                <pre>
+                    {
+                        "id": 1,
+                        "nome": "Gabriel Barbosa",
+                        "posicao": "Atacante",
+                        "time_id": 1,
+                        "created_at": "2024-10-22 21:46:05",
+                        "created_by": "admin"
+                    }
+                
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/jogadorTime.php?id=1</td>
+            <td>Lista os jogadores com o time do ID passado como parametro.</td>
+            <td>
+                <pre>
+                    [
+                        {
+                            "id": 1,
+                            "nome": "Gabriel Barbosa",
+                            "posicao": "Atacante",
+                            "time_id": 1,
+                            "created_at": "2024-10-22 21:46:05",
+                            "created_by": "admin"
+                        }
+                    ]
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>http://localhost/api/webservice/jogador.php</td>
+            <td>Cadastra novo jogador, requer nome, posicao, time_id</td>
+            <td>
+                <pre>
+                    {
+                        "nome": "Jogador Teste",
+                        "posicao": "Atacante",
+                        "time_id": 3,
+                        "created_by": "Admin"
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>http://localhost/api/webservice/partida.php?id=4</td>
+            <td>EDITA jogador. REQUER nome ou posicao.</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "Jogador atualizado com sucesso"
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>http://localhost/api/webservice/partida.php?id=6</td>
+            <td>Necessario passar o Id</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "Jogador deletado com sucesso"
+                    }
+                </pre>
+            </td>
+        </tr>
+    </table>
+
+    <h3>Time Campeonato</h3>
+    <table border="1">
+        <tr>
+            <th>Método</th>
+            <th>Exemplo</th>
+            <th>Descrição</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/timecampeonato.php</td>
+            <td>Lista todos os relacionamentos entre time e campeonato.</td>
+            <td>
+                <pre>
+                    [
+                        {
+                            "time_id": 2,
+                            "campeonato_id": 10,
+                            "created_at": "2024-10-22 17:35:43",
+                            "created_by": null
+                        },
+                        {
+                            "time_id": 2,
+                            "campeonato_id": 11,
+                            "created_at": "2024-10-22 17:33:42",
+                            "created_by": null
+                        },]
+                    ...
+                </pre>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>POST</td>
+            <td>http://localhost/api/webservice/timecampeonato.php</td>
+            <td>Cadastra Time em um Campeonato, requer time_id e campeonato_id</td>
+            <td>
+                <pre>
+                    {
+                        "time_id": 3,
+                        "campeonato_id": 10
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>http://localhost/api/webservice/timecampeonato.php</td>
+            <td>Não é possivel editar essa relação</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "Esse metodo não é permitido aqui"
+                    }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>http://localhost/api/webservice/timecampeonato.php</td>
+            <td>Não é possivel deletar essa relação</td>
+            <td>
+                <pre>
+                    {
+                        "msg": "Esse metodo não é permitido aqui"
+                    }
+                </pre>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
