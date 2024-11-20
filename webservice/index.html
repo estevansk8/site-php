@@ -46,7 +46,7 @@
         </tr>
         <tr>
             <td>GET</td>
-            <td>http://localhost/api/webservice/campeonato.php?id=1</td>
+            <td>http://localhost/api/webservice/campeonatoId.php?id=1</td>
             <td>Lista todos os campeonatos cadastrados com aquele ID.</td>
             <td>
                 <pre>
@@ -147,6 +147,24 @@
                         "created_at": "...",
                         "created_by": "admin"
                     }]
+                </pre>
+            </td>
+        </tr>
+
+        <tr>
+            <td>GET</td>
+            <td>http://localhost/api/webservice/clubeId.php?id=4</td>
+            <td>Lista o clube com aquele ID</td>
+            <td>
+                <pre>
+                    {
+                        "id": 4,
+                        "nome": "Grêmio",
+                        "cidade": "Porto Alegre",
+                        "estadio": "Arena do Grêmio",
+                        "created_at": "2024-10-22 21:46:05",
+                        "created_by": "admin"
+                    }
                 </pre>
             </td>
         </tr>
@@ -293,7 +311,9 @@
             <td>NÃO É PERMITIDO</td>
             <td>
                 <pre>
-                    NÃO É PERMITIDO
+                    {
+                        "msg": "Não é permitido aqui"
+                    }
                 </pre>
             </td>
         </tr>

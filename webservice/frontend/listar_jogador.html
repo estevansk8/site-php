@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Jogadores</title>
+    <link rel="stylesheet" href="css/listar_jogador.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div id="background">
+        <video loop autoplay muted>
+            <source src="./img/videofundo.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="top-bar"> 
+        <header>
+            <a href="home.html">
+                <img src="./img/cbf.png" alt="CBF Logo">
+            </a>
+    
+            <ul class="menu">
+                <li class="dropdown"><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Listar</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="listar_time.html">Time</a></li>
+                        <li><a href="listar_campeonato.html">Campeonato</a></li>
+                        <li><a href="listar_partida.html">Partida</a></li>
+                        <li><a href="listar_jogador.html">Jogador</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Cadastrar</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="cadastrar_time.html">Time</a></li>
+                        <li><a href="cadastrar_campeonato.html">Campeonato</a></li>
+                        <li><a href="cadastrar_partida.html">Partida</a></li>
+                        <li><a href="cadastrar_jogador.html">Jogador</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="inscrever_time.html">Inscrição em Campeonato</a></li>
+            </ul>
+            <div class="navigation_social">
+                <a href="https://www.linkedin.com/in/estevan-martins-de-sousa/" target="_blank" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="#EDF1F7" d="M100.28 448H7.4V148.9h92.88zm-46.44-349.8C24 98.2 0 73.7 0 43.6 0 19.7 19.9 0 44.7 0 69.3 0 88.5 19.7 88.5 43.6c0 30.1-20.8 54.6-44.66 54.6zM447.8 448h-92.86V302.4c0-34.7-.7-79.3-48.2-79.3-48.2 0-55.6 37.7-55.6 76.6V448h-92.8V148.9h89.2v40.8h1.3c12.4-23.5 42.8-48.2 88.2-48.2 94.2 0 111.5 61.6 111.5 141.5V448z"/>
+                  </svg>
+                </a>
+                
+                <a href="https://github.com/estevansk8" target="_blank" aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#EDF1F7">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.52-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                </a>
+            </div>
+        </header>
+    </div>
+
+    <div class="table-container">
+        <img src="img/jogador.png" class="form-image">
+        <h1>Lista de Jogadores</h1>
+        <table id="jogadores-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Posição</th>
+                    <th>Time</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dados serão carregados via JS -->
+            </tbody>
+        </table>
+        <div id="mensagem" class="mensagem"></div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span id="close-edit">&times;</span>
+            <h2>Editar Jogador</h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="editNome">Nome</label>
+                    <input type="text" id="editNome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPosicao">Posição</label>
+                    <input type="text" id="editPosicao" name="posicao" required>
+                </div>
+                <div class="form-group">
+                    <label for="editTimeId">Time</label>
+                    <select id="editTimeId" name="time_id" required></select>
+                </div>                
+                <button type="submit">Salvar</button>
+                <button type="button" class="cancelar">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/listar_jogador.js"></script>
+</body>
+</html>
