@@ -20,6 +20,94 @@
 
     <h2>Rotas da Aplicação</h2>
 
+    <h3>User</h3>
+    <table border="1">
+        <tr>
+            <th>Método</th>
+            <th>Exemplo</th>
+            <th>Descrição</th>
+            <th>Resultado</th>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/api/webservice/user.php</td>
+            <td>Lista todos os usuários cadastrados.</td>
+            <td>
+                <pre>
+                [
+                    {
+                        "id": 1,
+                        "nome": "João Silva",
+                        "email": "joao.silva@example.com",
+                        "created_at": "2024-11-19 15:30:00"
+                    },
+                    {
+                        "id": 2,
+                        "nome": "Maria Oliveira",
+                        "email": "maria.oliveira@example.com",
+                        "created_at": "2024-11-19 15:35:00"
+                    }
+                ]
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td>/api/webservice/user.php?id=1</td>
+            <td>Lista as informações do usuário com aquele ID.</td>
+            <td>
+                <pre>
+                {
+                    "id": 1,
+                    "nome": "João Silva",
+                    "email": "joao.silva@example.com",
+                    "created_at": "2024-11-19 15:30:00"
+                }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>/api/webservice/user.php</td>
+            <td>Cadastra um novo usuário. Requer os campos listados no JSON ao lado.</td>
+            <td>
+                <pre>
+                {
+                    "nome": "João Silva",
+                    "email": "joao.silva@example.com",
+                    "senha": "senhaSegura123"
+                }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>/api/webservice/user.php?id=1</td>
+            <td>Atualiza as informações do usuário com o ID informado. Apenas `nome` e/ou `senha` podem ser alterados.</td>
+            <td>
+                <pre>
+                {
+                    "nome": "João Atualizado",
+                    "senha": "novaSenhaSegura"
+                }
+                </pre>
+            </td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>/api/webservice/user.php?id=1</td>
+            <td>Deleta o usuário com o ID informado.</td>
+            <td>
+                <pre>
+                {
+                    "msg": "Usuário deletado com sucesso"
+                }
+                </pre>
+            </td>
+        </tr>
+    </table>
+
+
     <h3>Campeonato</h3>
     <table border="1">
         <tr>

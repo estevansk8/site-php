@@ -52,15 +52,20 @@ class Campeonato {
     // Inserir novo campeonato
     public static function insert($nome, $ano) {
         try {
+            if (!preg_match('/^\d{4}$/', $ano) || $ano < 1900 || $ano > date('Y')) {
+                throw new Exception("Ano inválido. Deve ser um ano válido entre 1900 e o ano atual.");
+            }
+            
             $conexao = Conexao::getConexao();
             $sql = $conexao->prepare("INSERT INTO Campeonato (nome, ano) VALUES (?, ?)");
             $sql->execute([$nome, $ano]);
-
+    
             return $sql->rowCount();
         } catch (Exception $e) {
             output(500, ["msg" => $e->getMessage()]);
         }
     }
+    
 
     // Buscar campeonato por ID
     public static function getById($id) {
@@ -91,10 +96,14 @@ class Campeonato {
     // Atualizar campeonato
     public static function update($id, $nome, $ano) {
         try {
+            if (!preg_match('/^\d{4}$/', $ano) || $ano < 1900 || $ano > date('Y')) {
+                throw new Exception("Ano inválido. Deve ser um ano válido entre 1900 e o ano atual.");
+            }
+            
             $conexao = Conexao::getConexao();
             $sql = $conexao->prepare("UPDATE Campeonato SET nome = ?, ano = ? WHERE id = ?");
             $sql->execute([$nome, $ano, $id]);
-
+    
             return $sql->rowCount();
         } catch (Exception $e) {
             output(500, ["msg" => $e->getMessage()]);
