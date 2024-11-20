@@ -80,8 +80,14 @@ ADD COLUMN vencedor INT GENERATED ALWAYS AS (
     END
 ) STORED;
 
+ALTER TABLE Campeonato MODIFY ano YEAR;
+
 
 -- Inserção de dados nas tabelas
+
+-- Inserindo Usuário
+INSERT INTO User (nome, email, senha, created_at, updated_at) 
+VALUES ('Carlos Silva', 'carlos.silva@email.com', 'senha123', '2024-11-19 10:00:00', '2024-11-19 10:00:00');
 
 -- Inserindo clubes
 INSERT INTO Clube (nome, cidade, estadio, created_by) VALUES
@@ -133,4 +139,5 @@ INSERT INTO Partida (data, local, campeonato_id, time_home_id, time_away_id, tim
 ('2023-10-15', 'Allianz Parque', 5, 2, 3, 3, 1, 'admin'),
 ('2023-10-20', 'Arena do Grêmio', 4, 4, 5, 2, 0, 'admin');
 
-ALTER TABLE Campeonato MODIFY ano YEAR;
+
+
