@@ -15,7 +15,7 @@ class Conexao
         $hostname = 'localhost';
         $database = 'gerenciaCampeonatos';
         $username = 'root';
-        // $password = '';
+        $password = '';
 
         $dsn = "mysql:host=$hostname;dbname=$database";
         $options = [
