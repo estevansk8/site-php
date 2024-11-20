@@ -42,49 +42,72 @@
                         <li><a href="cadastrar_jogador.html">Jogador</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="inscrever_time.html">Inscrição em Campeonato</a>
+                </li>
             </ul>
+
+            <div class="navigation_social">
+                <a href="https://www.linkedin.com/in/estevan-martins-de-sousa/" target="_blank" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path fill="#EDF1F7" d="M100.28 448H7.4V148.9h92.88zm-46.44-349.8C24 98.2 0 73.7 0 43.6 0 19.7 19.9 0 44.7 0 69.3 0 88.5 19.7 88.5 43.6c0 30.1-20.8 54.6-44.66 54.6zM447.8 448h-92.86V302.4c0-34.7-.7-79.3-48.2-79.3-48.2 0-55.6 37.7-55.6 76.6V448h-92.8V148.9h89.2v40.8h1.3c12.4-23.5 42.8-48.2 88.2-48.2 94.2 0 111.5 61.6 111.5 141.5V448z"/>
+                  </svg>
+                </a>
+                
+                <a href="https://github.com/estevansk8" target="_blank" aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#EDF1F7">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.52-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                </a>
+            </div>
+
         </header>
     </div>
 
-    <main>
-        <div class="form-container">
-            <h1>Cadastrar Partida</h1>
-            <form action="http://localhost/api/webservice/partida.php" method="POST" id="formPartida">
-                <div class="form-group">
-                    <label for="data">Data</label>
-                    <input type="datetime-local" id="data" name="data" required>
-                </div>
-                <div class="form-group">
-                    <label for="local">Local</label>
-                    <input type="text" id="local" name="local" required>
-                </div>
-                <div class="form-group">
-                    <label for="campeonato_id">Campeonato</label>
-                    <input type="number" id="campeonato_id" name="campeonato_id" required>
-                </div>
-                <div class="form-group">
-                    <label for="time_home_id">Time Casa</label>
-                    <input type="number" id="time_home_id" name="time_home_id" required>
-                </div>
-                <div class="form-group">
-                    <label for="time_away_id">Time Visitante</label>
-                    <input type="number" id="time_away_id" name="time_away_id" required>
-                </div>
-                <div class="form-group">
-                    <label for="time_home_gols">Gols Time Casa</label>
-                    <input type="number" id="time_home_gols" name="time_home_gols" required>
-                </div>
-                <div class="form-group">
-                    <label for="time_away_gols">Gols Time Visitante</label>
-                    <input type="number" id="time_away_gols" name="time_away_gols" required>
-                </div>
-                <div class="form-group">
-                    <label for="created_by">Criado Por (Opcional)</label>
-                    <input type="text" id="created_by" name="created_by">
-                </div>
-                <button type="submit" class="btn-submit">Cadastrar</button>
-            </form>
-        </div>
-    </main>
+    <div class="form-container">
+        <img src="img/partida.png" alt="Partida" class="form-image">
+        <h1>CADASTRO DE PARTIDA</h1>
+        <form id="form-partida">
+            <div class="form-group">
+                <label for="data">Data</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <div class="form-group">
+                <label for="campeonato">Campeonato</label>
+                <select id="campeonato" name="campeonato" required>
+                    <!-- Opções carregadas dinamicamente -->
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="timeCasa">Time da Casa</label>
+                <select id="timeCasa" name="timeCasa" required>
+                    <!-- Opções carregadas dinamicamente -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="timeVisitante">Time Visitante</label>
+                <select id="timeVisitante" name="timeVisitante" required>
+                    <!-- Opções carregadas dinamicamente -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="local">Local da Partida</label>
+                <input type="text" id="local" name="local" required>
+            </div>
+            <div class="form-group">
+                <label for="golsCasa">Gols da Casa</label>
+                <input type="number" id="golsCasa" name="golsCasa" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="golsVisitante">Gols do Visitante</label>
+                <input type="number" id="golsVisitante" name="golsVisitante" min="0" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div id="mensagem" class="mensagem"></div>
+    </div>
+    
+    <script src="js/cadastro_partida.js"></script>
 </body>
 </html>

@@ -24,9 +24,9 @@ form.addEventListener("submit", async (event) => {
         const result = await response.json();
 
         if (response.ok) {
-            mensagem.textContent = "Campeonato cadastrado com sucesso!";
+            mensagem.textContent = result.msg;
             mensagem.style.color = "green";
-            form.reset(); // Limpa o formulário
+            form.reset(); 
         } else {
             mensagem.textContent = result.msg || "Erro ao cadastrar o campeonato.";
             mensagem.style.color = "red";

@@ -52,6 +52,7 @@ if (method("POST")) {
 }
 
 // Atualizar partida
+/*
 if (method("PUT")) {
     try {
         if (!valid($_GET, ["id"])) {
@@ -83,6 +84,14 @@ if (method("PUT")) {
         }
 
         output(200, ["msg" => "Partida atualizada com sucesso"]);
+    } catch (Exception $e) {
+        output($e->getCode(), ["msg" => $e->getMessage()]);
+    }
+}
+*/
+if (method("PUT")) {
+    try {
+        output(400, ["msg" => "Esse metodo não é permitido aqui"]);
     } catch (Exception $e) {
         output($e->getCode(), ["msg" => $e->getMessage()]);
     }

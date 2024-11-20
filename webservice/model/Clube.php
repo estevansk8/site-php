@@ -16,6 +16,18 @@ class Clube
         }
     }
 
+    public static function obterPorId($id) {
+        try {
+            $conexao = Conexao::getConexao();
+            $sql = $conexao->prepare("SELECT * FROM Clube WHERE id = ?");
+            $sql->execute([$id]);
+    
+            return $sql->fetch();
+        } catch (Exception $e) {
+            output(500, ["msg" => $e->getMessage()]);
+        }
+    }
+
     public static function insert($nome, $cidade, $estadio, $created_by = null) {
         try {
             $conexao = Conexao::getConexao();

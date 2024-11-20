@@ -13,7 +13,6 @@ async function carregarTimes() {
         
         const times = await response.json();
         
-        // Certifique-se de limpar o dropdown antes de adicionar os novos valores
         timeSelect.innerHTML = '<option value="">Selecione um time</option>';
         
         times.forEach(time => {

@@ -1,0 +1,116 @@
+.table-container {
+    background-color: #1e1c2ed5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.form-image {
+    width: 100px; /* Largura ajustável */
+    height: auto; /* Mantém a proporção */
+    display: block;
+    margin: 0 auto 15px auto; /* Centraliza e adiciona margem abaixo */
+    border-radius: 10px; /* (Opcional) Bordas arredondadas */
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1c2e;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #0a9779;
+}
+
+thead th {
+    padding: 10px;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+tbody tr:hover {
+    background-color: #2b2a40;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #0a9779;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #44d4c1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    align-items: center;
+    justify-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #1e1c2ed5;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content h1{
+    font-size: 50px;
+}
+
+#vencedorModal{
+    align-items: center;
+}
+
+#close-vencedor {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#close-vencedor:hover {
+    color: #ff0000;
+}
+
+#vencedorModal{
+    align-items: center;
+}
+
+button{
+    background-color: #6a5adfe7;
+}

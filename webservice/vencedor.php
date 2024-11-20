@@ -29,7 +29,7 @@ if (method("GET")) {
         $sql->execute([$vencedor_id]);
         $vencedor = $sql->fetch(PDO::FETCH_ASSOC);
 
-        output(200, ["msg" => "O vencedor do campeonato é o time", "vencedor" => $vencedor]);
+        output(200, $vencedor);
     } catch (Exception $e) {
         output($e->getCode(), ["msg" => $e->getMessage()]);
     }

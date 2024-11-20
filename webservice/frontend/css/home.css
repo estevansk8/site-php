@@ -66,7 +66,7 @@ header img{
 }
 
 .top-bar .menu a:hover {
-    background-color: #695adf9d;
+    background-color: #5a79dfaf;
     border-radius: 5px;
 }
 
@@ -119,6 +119,42 @@ header img{
     opacity: 1;
     transform: translateY(-5px);
 }
+
+main{
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px;
+    width: 100%;
+    max-width: 1440px;
+}
+
+.main_info{
+    align-items: center;
+}
+
+.form-container h1{
+    font-size: 35px;
+    color: rgb(68, 250, 189);
+}
+
+.form-container p{
+    font-size: 20px;
+    margin: 20px 0 28px;
+    color: white;
+}
+
+.form-container .highlight {
+    color: rgb(68, 250, 189);
+    font-weight: bold; /* Opcional: para dar destaque adicional */
+}
+
+
+
+
+
 
 
 

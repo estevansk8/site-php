@@ -18,6 +18,18 @@ class Campeonato {
         }
     }
 
+    public static function obterPorId($id) {
+        try {
+            $conexao = Conexao::getConexao();
+            $sql = $conexao->prepare("SELECT * FROM Campeonato WHERE id = ?");
+            $sql->execute([$id]);
+    
+            return $sql->fetch();
+        } catch (Exception $e) {
+            output(500, ["msg" => $e->getMessage()]);
+        }
+    }
+
     public static function listarPorTime($time_id) {
         try {
             $conexao = Conexao::getConexao();

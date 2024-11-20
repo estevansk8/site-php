@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Jogador</title>
+    <title>Inscrição de Time</title>
     <link rel="stylesheet" href="css/cadastro_jogador.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-
     <div id="background">
         <video loop autoplay muted>
             <source src="./img/videofundo.mp4" type="video/mp4">
@@ -43,7 +42,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="inscrever_time.html">Inscrição em Campeonato</a>
+                    <a href="inscrever_time.html">Inscrição em campeonato</a>
                 </li>
             </ul>
 
@@ -59,34 +58,31 @@
                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.52-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                   </svg>
                 </a>
-              </div>
-              
+            </div>
         </header>
     </div>
 
     <div class="form-container">
-        <img src="img/jogador.png" alt="Jogador" class="form-image">
-        <h1>CADASTRO DE JOGADOR</h1>
-        <form id="form-jogador">
-            <div class="form-group">
-                <label for="nome">Nome do Jogador</label>
-                <input type="text" id="nome" name="nome" required>
-            </div>
-            <div class="form-group">
-                <label for="posicao">Posição</label>
-                <input type="text" id="posicao" name="posicao" required>
-            </div>
+        <img src="img/cbf.png" alt="Time" class="form-image">
+        <h1>INSCRIÇÃO DE TIME</h1>
+        <form id="form-time-campeonato">
             <div class="form-group">
                 <label for="time">Time</label>
                 <select id="time" name="time" required>
-                    <!-- As opções serão carregadas pelo JavaScript -->
+                    <!-- Times carregados pelo JavaScript -->
                 </select>
             </div>
-            <button type="submit">Cadastrar</button>
+            <div class="form-group">
+                <label for="campeonato">Campeonato</label>
+                <select id="campeonato" name="campeonato" required>
+                    <!-- Campeonatos carregados pelo JavaScript -->
+                </select>
+            </div>
+            <button type="submit">Inscrever</button>
         </form>
         <div id="mensagem" class="mensagem"></div>
     </div>
-    
-    <script src="js/cadastro_jogador.js"></script>
+
+    <script src="js/inscricao_time.js"></script>
 </body>
 </html>
